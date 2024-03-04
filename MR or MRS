@@ -1,0 +1,29 @@
+import keyboard
+
+# 初始化计数器
+male_count = 0
+female_count = 0
+
+print("按下 'n' 键以计数男生，按下 'm' 键以计数女生。按 'esc' 键退出。")
+
+# 定义增加男生计数的回调函数
+def increase_male(e):
+    global male_count
+    male_count += 1
+    print(f"男生人数: {male_count}")
+
+# 定义增加女生计数的回调函数
+def increase_female(e):
+    global female_count
+    female_count += 1
+    print(f"女生人数: {female_count}")
+
+# 监听按键事件
+keyboard.on_press_key("n", increase_male)
+keyboard.on_press_key("m", increase_female)
+
+# 等待直到按下 'esc' 键退出
+keyboard.wait('esc')
+
+# 打印最终计数
+print(f"最终结果: 男生人数 = {male_count}, 女生人数 = {female_count}")
